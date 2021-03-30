@@ -8,42 +8,17 @@
 </head>
 <body>
     <script>
-        // Word generator which takes word length as an input, compares to word to find, counts iterations. 
+        // Word generator which compares to word to find, counts iterations. 
         // Get time spent and probability for each word length. Alphanumerical lower-case values only.
-        // UI in browser. Take word length & word(s) to find, output time & iteration count
+        // UI in browser. Take word to find, output time & iteration count as well as result.
 
-        /*
-        let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-        alphabet.unshift('')
 
-        function passGen(wordToFind) {
-            let c1 = 0;
-            let c2 = 0;
-            let c3 = 0;
-            let c4 = 0;
-            
-            for (c1 = 0; c1 < alphabet.length; c1++) {
-                for (c2 = 0; c2 < alphabet.length; c2++) {
-                    for (c3 = 0; c3 < alphabet.length; c3++) {
-                        for (c4 = 0; c4 < alphabet.length; c4++) {
-                            if ((alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4]) == wordToFind) {
-                                return (alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4]);
-                            }
-                        }
-                    }
-                }
-            }
-        
-        
-        }
-        
-        console.log(passGen('zzz'))
-        console.log(alphabet)   */
 
         let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
         alphabet.unshift('')
 
         function passGen(wordToFind) {
+
             let c1 = 0;
             let c2 = 0;
             let c3 = 0;
