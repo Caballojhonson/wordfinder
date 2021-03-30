@@ -12,30 +12,33 @@
         // Get time spent and probability for each word length. Alphanumerical lower-case values only.
         // UI in browser. Take word length & word(s) to find, output time & iteration count
 
+
         const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-        
-        // if a == input return word. else continue. is z == ... else try aa - az ... else try aaa - aaz
 
         function wordGen(wordToFind) {
             let c1 = 0;
             let c2 = 0;
             let c3 = 0;
             let c4 = 0;
-            do{
+            
             for (c1 = 0; c1 < alphabet.length; c1++) {
                 for (c2 = 0; c2 < alphabet.length; c2++) {
                     for (c3 = 0; c3 < alphabet.length; c3++) {
                         for (c4 = 0; c4 < alphabet.length; c4++) {
-                            console.log((alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4]))
+                            if ((alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4]) == wordToFind) {
+                                return (alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4]);
+                            }
                         }
                     }
                 }
             }
-        } while ((alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4]) !== wordToFind)
-        return console.log((alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4]))
+        
+        
         }
         
-        console.log(wordGen('abba'))
+        console.log(wordGen('zzzz'))
+        
+        
 
     </script>
 </body>
