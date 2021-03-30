@@ -17,9 +17,10 @@
         <button class="button" type="button" onclick="resultOutput(), iCountOutput()">Submit</button>
 
     </form>
-    <div id="output">Log:</div>
-    <div id="icount">Count:</div>
-
+    <div id="resultContainer">
+        <div id="output">Log:</div>
+        <div id="icount">Count:</div>
+    </div>
     <script>
 
         // Word generator which compares to word to find, counts iterations. 
@@ -95,12 +96,12 @@
             const iCountContainer = document.querySelector('#icount');
             const inputPass = document.getElementById("pass").value;
 
-            createDiv.textContent = passGen(inputPass)[1];
+            createDiv.textContent = new Intl.NumberFormat().format(passGen(inputPass)[1]);
 
             return iCountContainer.appendChild(createDiv);
         }
         
-        console.log(passGen('a')[1])
+        
         
         
 
