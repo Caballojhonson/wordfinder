@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Password Cracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <h1>Password finder!</h1>
-    <form id="form" action="">
+    <form id="form">
 
         <label for="pass">Enter a password:</label><br>
         <input type="text" id="pass" name="pass"><br>
-        <button type="button" onclick="appendOutput()">Submit</button>
+        <button class="button" type="button" onclick="resultOutput(), iCountOutput()">Submit</button>
 
     </form>
-    <div id="output">Output goes here</div>
+    <div id="output">Log:</div>
+    <div id="icount">Count:</div>
 
     <script>
 
@@ -41,23 +43,24 @@
             let c10 = 0;
             let c11 = 0;
             let c12 = 0;
+            let globalCount = 0;
             
-            if (wordToFind === ('' || NaN || undefined)) {return 'Password please'}
+            if (wordToFind === '' || wordToFind === undefined || wordToFind === NaN) {return 'Password please'}
 
-            for (c1 = 0; c1 < alphabet.length; c1++) {
-                for (c2 = 0; c2 < alphabet.length; c2++) {
-                    for (c3 = 0; c3 < alphabet.length; c3++) {
-                        for (c4 = 0; c4 < alphabet.length; c4++) {
-                            for (c5 = 0; c5 < alphabet.length; c5++) {
-                                for (c6 = 0; c6 < alphabet.length; c6++) {
-                                    for (c7 = 0; c7 < alphabet.length; c7++) {
-                                        for (c8 = 0; c8 < alphabet.length; c8++) {
-                                            for (c9 = 0; c9 < alphabet.length; c9++) {
-                                                for (c10 = 0; c10 < alphabet.length; c10++) {
-                                                    for (c11 = 0; c11 < alphabet.length; c11++) {
-                                                        for (c12 = 0; c12 < alphabet.length; c12++) {
+            for (c1 = 0; c1 < alphabet.length; c1++, globalCount++) {
+                for (c2 = 0; c2 < alphabet.length; c2++, globalCount++) {
+                    for (c3 = 0; c3 < alphabet.length; c3++, globalCount++) {
+                        for (c4 = 0; c4 < alphabet.length; c4++, globalCount++) {
+                            for (c5 = 0; c5 < alphabet.length; c5++, globalCount++) {
+                                for (c6 = 0; c6 < alphabet.length; c6++, globalCount++) {
+                                    for (c7 = 0; c7 < alphabet.length; c7++, globalCount++) {
+                                        for (c8 = 0; c8 < alphabet.length; c8++, globalCount++) {
+                                            for (c9 = 0; c9 < alphabet.length; c9++, globalCount++) {
+                                                for (c10 = 0; c10 < alphabet.length; c10++, globalCount++) {
+                                                    for (c11 = 0; c11 < alphabet.length; c11++, globalCount++) {
+                                                        for (c12 = 0; c12 < alphabet.length; c12++, globalCount++) {
                                                             if ((alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]) == wordToFind) {
-                                                                return (alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]);
+                                                                return [(alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]), (globalCount)];
                                                             }
                                                         }
                                                     }
@@ -75,20 +78,29 @@
         
         }
 
-        function appendOutput() {
+        function resultOutput() {
 
             const createDiv = document.createElement('div');
             const outputContainer = document.querySelector('#output');
             const inputPass = document.getElementById("pass").value;
             
-            createDiv.textContent = passGen(inputPass);
-            //debug//WORKS//console.log(passGen(inputPass));
+            createDiv.textContent = passGen(inputPass)[0];
             
             return outputContainer.appendChild(createDiv);
-            
+        }
 
+        function iCountOutput() {
+
+            const createDiv = document.createElement('div');
+            const iCountContainer = document.querySelector('#icount');
+            const inputPass = document.getElementById("pass").value;
+
+            createDiv.textContent = passGen(inputPass)[1];
+
+            return iCountContainer.appendChild(createDiv);
         }
         
+        console.log(passGen('a')[1])
         
         
 
