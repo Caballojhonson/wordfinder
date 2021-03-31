@@ -1,0 +1,47 @@
+html, body {
+    font-family: 'Montserrat', sans-serif;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+h1, h2, h3 {
+    font-family: 'Source Code Pro', monospace;
+}
+.header {
+    display: grid;
+    grid-template-columns: auto;
+}
+.title {
+    justify-self: center;
+}
+.formContainer {
+    display: grid;
+    grid-template-columns: auto;
+}
+#form {
+    display: grid;
+    grid-template-columns: auto;
+    justify-items: center;
+}
+#pass {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 50%;
+}
+#pass:focus {
+    outline: none;
+}
+#resultContainer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    grid-gap: 50px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: rgb(240, 241, 255);
+    border-radius: 10px;
+}
+.outputs {
+    align-self: center;
+    justify-self: center;
+    
+}

@@ -6,20 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Cracker</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Source+Code+Pro&display=swap');
+    </style>
 </head>
 <body>
-
-    <h1>Password finder!</h1>
-    <form id="form">
-
-        <label for="pass">Enter a password:</label><br>
-        <input type="text" id="pass" name="pass"><br>
-        <button class="button" type="button" onclick="resultOutput(), iCountOutput()">Submit</button>
-
-    </form>
+    <div class="header">
+        <h1 class="title">Password cracker!</h1>
+    </div>
+    <div class="formContainer">
+        <form id="form" onsubmit="passOutput(), iCountOutput(), timeOutput(); return false;">
+            <label for="pass">Enter a password:</label><br>
+            <input type="text" id="pass" name="pass"><br>
+        </form>
+    </div>
     <div id="resultContainer">
-        <div id="output">Log:</div>
-        <div id="icount">Count:</div>
+        <div class="outputs" id="passOutput">Log:</div>
+        <div class="outputs" id="icount">Iterations:</div>
+        <div class="outputs" id="time">Time:</div>
     </div>
     <script>
 
@@ -45,6 +49,7 @@
             let c11 = 0;
             let c12 = 0;
             let globalCount = 0;
+            let t = new Date();
             
             if (wordToFind === '' || wordToFind === undefined || wordToFind === NaN) {return 'Password please'}
 
@@ -61,7 +66,7 @@
                                                     for (c11 = 0; c11 < alphabet.length; c11++, globalCount++) {
                                                         for (c12 = 0; c12 < alphabet.length; c12++, globalCount++) {
                                                             if ((alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]) == wordToFind) {
-                                                                return [(alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]), (globalCount)];
+                                                                return [(alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]), (globalCount), (new Date() - t)];
                                                             }
                                                         }
                                                     }
@@ -79,10 +84,10 @@
         
         }
 
-        function resultOutput() {
+        function passOutput() {
 
             const createDiv = document.createElement('div');
-            const outputContainer = document.querySelector('#output');
+            const outputContainer = document.querySelector('#passOutput');
             const inputPass = document.getElementById("pass").value;
             
             createDiv.textContent = passGen(inputPass)[0];
@@ -100,6 +105,17 @@
 
             return iCountContainer.appendChild(createDiv);
         }
+
+        function timeOutput() {
+
+            const createDiv = document.createElement('div');
+            const timeContainer = document.querySelector('#time');
+            const inputPass = document.getElementById("pass").value;
+
+            createDiv.textContent = new Intl.NumberFormat().format(passGen(inputPass)[2]);
+
+            return timeContainer.appendChild(createDiv);
+            }
         
         
         
