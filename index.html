@@ -11,25 +11,25 @@
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1 class="title">Password cracker!</h1>
-    </div>
-    <div class="formContainer">
-        <form id="form" onsubmit="passOutput(), iCountOutput(), timeOutput(); return false;">
-            <label for="pass">Enter a password:</label><br>
-            <input type="text" id="pass" name="pass"><br>
-        </form>
-    </div>
-    <div id="resultContainer">
-        <div class="outputs" id="passOutput">Log:</div>
-        <div class="outputs" id="icount">Iterations:</div>
-        <div class="outputs" id="time">Time:</div>
-    </div>
-    <script>
 
-        // Word generator which compares to word to find, counts iterations. 
-        // Get time spent and probability for each word length. Alphanumerical lower-case values only.
-        // UI in browser. Take word to find, output time & iteration count as well as result.
+    <div class="mainContainer">
+        <div class="header">
+            <h1 class="title">Password cracker!</h1>
+        </div>
+        <div class="formContainer">
+            <form id="form" onsubmit="passOutput(), iCountOutput(), timeOutput(); return false;">
+                <label for="pass">Enter a password:</label><br>
+                <input type="text" id="pass" name="pass"><br>
+            </form>
+        </div>
+        <div id="resultContainer">
+            <div class="outputs" id="passOutput">Log:</div>
+            <div class="outputs" id="icount">Iterations:</div>
+            <div class="outputs" id="time">Time:</div>
+        </div>
+    </div>
+    
+    <script>
 
         let alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
         alphabet.unshift('')
@@ -66,7 +66,8 @@
                                                     for (c11 = 0; c11 < alphabet.length; c11++, globalCount++) {
                                                         for (c12 = 0; c12 < alphabet.length; c12++, globalCount++) {
                                                             if ((alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]) == wordToFind) {
-                                                                return [(alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]), (globalCount), (new Date() - t)];
+                                                                return [(alphabet[c1] + alphabet[c2] + alphabet[c3] + alphabet[c4] + alphabet[c5] + alphabet[c6] + alphabet[c7] + alphabet[c8] + alphabet[c9] + alphabet[c10] + alphabet[c11] + alphabet[c12]), 
+                                                                (globalCount), (new Date() - t)];
                                                             }
                                                         }
                                                     }
@@ -116,6 +117,7 @@
 
             return timeContainer.appendChild(createDiv);
             }
+
         
         
         

@@ -1,7 +1,6 @@
-html, body {
+body, html {
     font-family: 'Montserrat', sans-serif;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: 25px;
 }
 h1, h2, h3 {
     font-family: 'Source Code Pro', monospace;
@@ -26,6 +25,10 @@ h1, h2, h3 {
     border-radius: 10px;
     width: 100%;
     max-width: 50%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font: 400 20px 'Source Code Pro';
 }
 #pass:focus {
     outline: none;
